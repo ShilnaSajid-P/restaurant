@@ -1,0 +1,15 @@
+<!-- ordered_items.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ordered Items</title>
+</head>
+<body>
+    <h1>Ordered Items</h1>
+    <ul>
+        {% for ordered_item in ordered_items %}
+            <li>{{ ordered_item.item_name }} - Quantity: {{ ordered_item.quantity }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
