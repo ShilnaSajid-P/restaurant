@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Select Items</h1>
-    <form method="POST" action="/save_items">
+    <form method="POST" action="/place_order">
         {% for item in items %}
         <input type="checkbox" name="selected_items" value="{{ item.id }}"> {{ item.name }}<br>
         {% endfor %}

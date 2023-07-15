@@ -19,6 +19,7 @@ class Item(Base):
     __tablename__ = "items"
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String)
+    category = Column(String)
 
 class OrderedItem(Base):
     __tablename__ = "ordered_items"

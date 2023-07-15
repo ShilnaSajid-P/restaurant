@@ -51,7 +51,7 @@ async def register(user: UserCreate, db = Depends(get_db)):
     
     return {"message": "User registered successfully"}
 
-@router.post("/items")
+@router.post("/add_items")
 async def create_item(name: str, db: Session = Depends(get_db)):
     new_item = Item(name=name)
     db.add(new_item)
@@ -59,7 +59,7 @@ async def create_item(name: str, db: Session = Depends(get_db)):
     db.refresh(new_item)
     return new_item
 
-@router.post("/save_items")
+@router.post("/place_order")
 async def save_items(selected_items: List[int] = Form(...), db: Session = Depends(get_db)):
     items = db.query(Item).filter(Item.id.in_(selected_items)).all()
 
@@ -73,7 +73,7 @@ async def save_items(selected_items: List[int] = Form(...), db: Session = Depend
 
     return {"message": "Items saved successfully"}
 
-@router.get("/ordered_items")
+@router.get("/list_orders")
 async def get_ordered_items(db: Session = Depends(get_db)):
     ordered_items = db.query(OrderedItem).all()
     return ordered_items
